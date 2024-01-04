@@ -13,12 +13,16 @@ const saver = http.createServer((req, res) => {
   }
   // process.emit()
   if (url === '/', method === 'POST') {
-    fs.writeFileSync()
+    fs.writeFileSync('message.tsx', 'Dummy')
+    res.statusCode = 302
+    res.setHeader('Location', '/')
+    return res.end
+  }
   res.write('<html>')
   res.write('<head><hi>Welcome Page</hi></head>')
   res.write('<body><h1>Welcome To The Welcome Page</h1></body>')
   res.write('</html>')
   res.end
-  }
+
 })
 saver.listen(5005, () => console.log("listening..."))
