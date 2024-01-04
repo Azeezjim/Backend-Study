@@ -9,14 +9,14 @@ const saver = http.createServer((req, res) => {
     res.write('<head><hi>Welcome Page</hi></head>')
     res.write('<body><form action="/message" action="POST"><input test="text" name="message" ><button type="submit">Semd</button></form></body>')
     res.write('</html>')
-    return res.end
+    return res.end()
   }
   // process.emit()
-  if (url === '/', method === 'POST') {
+  if (url === '/message' && method === 'POST') {
     fs.writeFileSync('message.tsx', 'Dummy')
     res.statusCode = 302
     res.setHeader('Location', '/')
-    return res.end
+    return res.end()
   }
   res.write('<html>')
   res.write('<head><hi>Welcome Page</hi></head>')
