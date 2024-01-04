@@ -5,18 +5,18 @@ const saver = http.createServer((req, res) => {
   console.log(req.url, req.headers, req.method)
   const url = req.url
   if (url === '/') {
-    res.write('<html>')
-    res.write('<head><hi>Welcome Page</hi></head>')
-    res.write('<body><form action="/message" action="POST"><input test="text" name="message" ><button type="submit">Semd</button></form></body>')
-    res.write('</html>')
-    return res.end()
+    res.write('<html>');
+    res.write('<head><hi>Welcome Page</hi></head>');
+    res.write('<body><form action="/message" action="POST"><input type="text" name="message" ><button type="submit">Semd</button></form></body>');
+    res.write('</html>');
+    return res.end();
   }
   // process.emit()
   if (url === '/message' && method === 'POST') {
-    fs.writeFileSync('message.txt', 'Dummy')
-    res.statusCode = 302
-    res.setHeader('Location', '/')
-    return res.end()
+    fs.writeFileSync('message.txt', 'Dummy');
+    res.statusCode = 302;
+    res.setHeader('Location', '/');
+    return res.end();
   }
   // res.write('<html>')
   // res.write('<head><hi>Welcome Page</hi></head>')
