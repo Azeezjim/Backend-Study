@@ -6,7 +6,7 @@ const saver = http.createServer((req, res) => {
   if (url === '/') {
     res.write('<html>')
     res.write('<head><hi>Welcome Page</hi></head>')
-    res.write('<body><form action="/message" action="POST"><input test="text" name="message" ><button type="submit"></button></form></body>')
+    res.write('<body><form action="/message" action="POST"><input test="text" name="message" ><button type="submit">Semd</button></form></body>')
     res.write('</html>')
     return res.end
   }
