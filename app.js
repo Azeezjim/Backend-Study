@@ -11,6 +11,10 @@ const saver = http.createServer((req, res )=> {
     return res.end
   }
   // process.emit()
-  res.write('<html><h1>Hello devAzeezjim </h1></html>')
+  res.write('<html>')
+    res.write('<head><hi>Welcome Page</hi></head>')
+    res.write('<body><form action="/message" action="POST"><input test="text" name="message" ><button type="submit"></button></form></body>')
+    res.write('</html>')
+     res.end
 })
 saver.listen(5005, () =>  console.log("listening..."))
