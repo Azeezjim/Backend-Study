@@ -13,6 +13,11 @@ const saver = http.createServer((req, res) => {
   }
   // process.emit()
   if (url === '/message' && method === 'POST') {
+    const body =[];
+    res.on('data', (chunk) => {
+      console.log(chunk)
+      body.push(chunk)
+    })
     fs.writeFileSync('message.txt', 'Dummy');
     res.statusCode = 302;
     res.setHeader('Location', '/');
