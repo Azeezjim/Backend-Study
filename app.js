@@ -1,5 +1,6 @@
 const http = require('http')
 const fs = require('fs')
+const { buffer } = require('node:stream/consumers')
 
 const saver = http.createServer((req, res) => {
   console.log(req.url, req.headers, req.method)
@@ -17,6 +18,10 @@ const saver = http.createServer((req, res) => {
     res.on('data', (chunk) => {
       console.log(chunk)
       body.push(chunk)
+    })
+    res.on('end', () =>{
+      const passBody= Buffer.concat(body).toString()
+      console.log(passBody)
     })
     fs.writeFileSync('message.txt', 'Dummy');
     res.statusCode = 302;
