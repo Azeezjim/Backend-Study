@@ -21,7 +21,7 @@ const saver = http.createServer((req, res) => {
     })
     res.on('end', () =>{
       const passBody= Buffer.concat(body).toString()
-      console.log("passBody")
+      console.log("passBody",)
     })
     fs.writeFileSync('message.txt', 'Dummy');
     res.statusCode = 302;
