@@ -3,8 +3,8 @@ const express = require("express");
 
 const app = express();
 
-app.use((req, res, next) => {
-  console.log("First middleware");
+app.use("/add-prodect", (req, res, next) => {
+  res.send(<form action="/prodiuct" method="POST"><input type="text" name="title"> <button type="submit">Add Product</button></input></form>)
   next()
 })
 
