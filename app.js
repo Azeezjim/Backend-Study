@@ -5,7 +5,7 @@ const  bodyParser = require('body-parser')
 
 const app = express();
 
-app.bodyParser
+app.use{bodyParser.urlencoded()}
 
 app.use("/add-prodect", (req, res, next) => {
   res.send(<form action="/prodoct" method="POST"><input type="text" name="title"> <button type="submit">Add Product</button></input></form>)
